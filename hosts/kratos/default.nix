@@ -32,9 +32,8 @@
 # };
 #
 # Please also change your hostname accordingly:
-#:w
 
-# networking.hostName = "nixos"; # Define your hostname.
+#networking.hostName = "kratos"; # Define your hostname.
 
 {
   imports = [ ../common ./configuration.nix ];
