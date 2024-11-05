@@ -16,7 +16,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
   };
 
   outputs = { self, home-manager, nixpkgs, ... }@inputs:
@@ -35,7 +35,7 @@
         forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
       overlays = import ./overlays { inherit inputs; };
       nixosConfigurations = {
-        your-host = nixpkgs.lib.nixosSystem {
+        kratos = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
           modules = [ ./hosts/kratos ];
         };
