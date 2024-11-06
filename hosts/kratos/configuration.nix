@@ -47,7 +47,7 @@
   services.xserver.enable = true;
 
   # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
+  services.xserver.displayManager.lightdm.enable = true;
   services.xserver.desktopManager.xfce.enable = true;
 
   # Configure keymap in X11
@@ -104,8 +104,6 @@
     neovim
     git
     gh
-
-    yazi
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
