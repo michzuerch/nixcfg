@@ -86,6 +86,8 @@
     packages = with pkgs; [
       kdePackages.kate
     #  thunderbird
+      brave
+      vlc
     ];
   };
 
