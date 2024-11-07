@@ -1,10 +1,16 @@
 # Common configuration for all hosts
 
 { lib, inputs, outputs, ... }: {
+  imports = [
+    ./users
+    input.home-manager.nixosModules.home-manager
+  ];
+  home-manager = {
+    useUserPackages = true;
+    extraSpecialArgs = { inherit inputs outputs; };
+  };
   nixpkgs = {
-    # You can add overlays here
     overlays = [
-      # Add overlays your own flake exports (from overlays and pkgs dir):
       outputs.overlays.additions
       outputs.overlays.modifications
       outputs.overlays.stable-packages
@@ -19,9 +25,7 @@
       #   });
       # })
     ];
-    # Configure your nixpkgs instance
     config = {
-      # Disable if you don't want unfree packages
       allowUnfree = true;
     };
   };
